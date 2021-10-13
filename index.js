@@ -18,4 +18,5 @@ import ShoppingList from './CoreComponents/ShoppingList';
 import {name as appName} from './app.json';
 // yorum
 // pull için ekleme
+// yeni branch
 AppRegistry.registerComponent(appName, () => HomeScreen);
