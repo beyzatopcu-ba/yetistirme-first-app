@@ -17,5 +17,5 @@ import ShoppingList from './CoreComponents/ShoppingList';
 
 import {name as appName} from './app.json';
 // yorum
-// pull için eklemealsdkla
+// pull için ekleme
 AppRegistry.registerComponent(appName, () => HomeScreen);
