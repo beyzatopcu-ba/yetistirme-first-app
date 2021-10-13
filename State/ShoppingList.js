@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, TouchableOpacity, View, TextInput, SafeAreaView, FlatList } from 'react-native';
 
 const dummyData = [
@@ -8,6 +8,19 @@ const dummyData = [
 ];
 
 const ShoppingList = props => {
+
+    const [ text, setText ] = useState('');
+    const [ shoppingList, setShoppingList ] = useState([]);
+
+    const onChangeText_Item = (text) => {
+        setText(text);
+    }
+
+    const onPress_Add = () => {
+        let copyShoppingList = [...shoppingList];
+        copyShoppingList.push(text);
+        setShoppingList(copyShoppingList);
+    }
 
     const renderItem = (params) => {
         const item = params.item;
@@ -19,13 +32,16 @@ const ShoppingList = props => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <TextInput style={styles.input} placeholder={"İtem adı yaz"} />
-            <TouchableOpacity style={styles.button}>
+            <TextInput
+                style={styles.input}
+                placeholder={"İtem adı yaz"} 
+                onChangeText={onChangeText_Item}/>
+            <TouchableOpacity style={styles.button} onPress={onPress_Add}>
                 <Text style={styles.buttonText}>EKLE</Text>
             </TouchableOpacity>
             <View style={styles.listContainer}>
                 <FlatList
-                    data={dummyData}
+                    data={shoppingList}
                     renderItem={renderItem}
                     keyExtractor={(item, index) => { return index; }}
                 />
