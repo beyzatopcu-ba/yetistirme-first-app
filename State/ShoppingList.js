@@ -22,11 +22,21 @@ const ShoppingList = props => {
         setShoppingList(copyShoppingList);
     }
 
+    const deleteItem = (item) => {
+        // TODO...
+    }
+
     const renderItem = (params) => {
         const item = params.item;
 
+        const onPress_Item = () => {
+            deleteItem(item);
+        }
+
         return (
-            <Text style={styles.itemText}>{item}</Text>
+            <TouchableOpacity onPress={onPress_Item}>
+                <Text style={styles.itemText}>{item}</Text>
+            </TouchableOpacity>
         )
     }
 
