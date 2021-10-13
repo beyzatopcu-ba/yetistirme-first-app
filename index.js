@@ -12,11 +12,12 @@ import App3 from './StylingLayout/App3';
 import App4 from './StylingLayout/App4';
 
 import HomeScreen from './CoreComponents/HomeScreen';
-import ShoppingList from './CoreComponents/ShoppingList';
+// import ShoppingList from './CoreComponents/ShoppingList';
 import Counter from './State/Counter';
+import ShoppingList from './State/ShoppingList';
 
 import {name as appName} from './app.json';
 // yorum
 // pull için ekleme
 // yeni branch
-AppRegistry.registerComponent(appName, () => Counter);
+AppRegistry.registerComponent(appName, () => ShoppingList);
