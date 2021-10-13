@@ -2,6 +2,7 @@
  * @format
  */
 
+import 'react-native-gesture-handler';
 import {AppRegistry} from 'react-native';
 
 // App kısmı -> default export ile export edilmiş değişken (İstediğimiz ismi verebiliriz)
