@@ -40,10 +40,24 @@ const Counter = props => {
         }
     }
 
+    const renderNumPad = () => {
+        let numComponents = [];
+        for (let i = 1; i < 10; i++) {
+            numComponents.push(
+                <Text key={i}>1</Text>
+            )
+        }
+
+        return numComponents;
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.numberText}>{num}</Text>
             <View style={styles.buttonsContainer}>
+                <View>
+                    {renderNumPad()}
+                </View>
                 <TouchableOpacity style={styles.touchable} onPress={onPress_Increase}>
                     <Text style={styles.buttonText}>ARTTIR</Text>
                 </TouchableOpacity>
