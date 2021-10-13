@@ -13,10 +13,10 @@ import App4 from './StylingLayout/App4';
 
 import HomeScreen from './CoreComponents/HomeScreen';
 import ShoppingList from './CoreComponents/ShoppingList';
-
+import Counter from './State/Counter';
 
 import {name as appName} from './app.json';
 // yorum
 // pull için ekleme
 // yeni branch
-AppRegistry.registerComponent(appName, () => HomeScreen);
+AppRegistry.registerComponent(appName, () => Counter);
