@@ -22,19 +22,29 @@ const ShoppingList = props => {
         setShoppingList(copyShoppingList);
     }
 
-    const deleteItem = (item) => {
-        // TODO...
+    const deleteItem = (item, index) => {
+        /*
+        let copyShoppingList = [];
+        for (let it of shoppingList) {
+            if (it !== item) {
+                copyShoppingList.push(it);
+            }
+        }
+
+        setShoppingList(copyShoppingList);
+        */
+
+        let copyShoppingList = [...shoppingList];
+        copyShoppingList.splice(index, 1);
+        setShoppingList(copyShoppingList);
     }
 
     const renderItem = (params) => {
         const item = params.item;
-
-        const onPress_Item = () => {
-            deleteItem(item);
-        }
+        const index = params.index;
 
         return (
-            <TouchableOpacity onPress={onPress_Item}>
+            <TouchableOpacity onPress={() => deleteItem(item, index)}>
                 <Text style={styles.itemText}>{item}</Text>
             </TouchableOpacity>
         )
