@@ -64,9 +64,23 @@ const ShoppingListWithApi = props => {
     }
 
     const deleteItem = (item, index) => {
-        let copyShoppingList = [...shoppingList];
-        copyShoppingList.splice(index, 1);
-        setShoppingList(copyShoppingList);
+        fetch('https://rem-rest-api.herokuapp.com/api/items/' + item.id, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('delete successful')
+                let copyShoppingList = [...shoppingList];
+                copyShoppingList.splice(index, 1);
+                setShoppingList(copyShoppingList);
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
 
     const renderItem = (params) => {
