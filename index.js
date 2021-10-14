@@ -20,9 +20,10 @@ import MainNavigation from './Navigation/MainNavigation';
 import MainNavigationTabs from './Navigation/MainNavigationTabs';
 import Counter from './CustomComponents/Counter';
 import CounterAdvanced from './CustomComponents/CounterAdvanced';
+import AsyncAwait from './APIRequests/AsyncAwait';
 
 import {name as appName} from './app.json';
 // yorum
 // pull için ekleme
 // yeni branch
-AppRegistry.registerComponent(appName, () => CounterAdvanced);
+AppRegistry.registerComponent(appName, () => AsyncAwait);
