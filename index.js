@@ -21,9 +21,10 @@ import MainNavigationTabs from './Navigation/MainNavigationTabs';
 import Counter from './CustomComponents/Counter';
 import CounterAdvanced from './CustomComponents/CounterAdvanced';
 import AsyncAwait from './APIRequests/AsyncAwait';
+import ShoppingListWithApi from './APIRequests/ShoppingListWithApi';
 
 import {name as appName} from './app.json';
 // yorum
 // pull için ekleme
 // yeni branch
-AppRegistry.registerComponent(appName, () => AsyncAwait);
+AppRegistry.registerComponent(appName, () => ShoppingListWithApi);
