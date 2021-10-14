@@ -19,9 +19,10 @@ import ShoppingList from './State/ShoppingList';
 import MainNavigation from './Navigation/MainNavigation';
 import MainNavigationTabs from './Navigation/MainNavigationTabs';
 import Counter from './CustomComponents/Counter';
+import CounterAdvanced from './CustomComponents/CounterAdvanced';
 
 import {name as appName} from './app.json';
 // yorum
 // pull için ekleme
 // yeni branch
-AppRegistry.registerComponent(appName, () => Counter);
+AppRegistry.registerComponent(appName, () => CounterAdvanced);
