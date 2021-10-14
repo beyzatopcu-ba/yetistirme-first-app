@@ -1,10 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, TouchableOpacity, View, TextInput, SafeAreaView, FlatList } from 'react-native';
 
 const ShoppingListWithApi = props => {
 
     const [ text, setText ] = useState('');
     const [ shoppingList, setShoppingList ] = useState([]);
+
+    useEffect(() => {
+        // Component did mount
+        // API'den listeyi isteyeceğim.
+
+        fetch('https://rem-rest-api.herokuapp.com/api/items?limit=50', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => {
+            return response.json();
+        })
+        .then(jsonData => {
+            setShoppingList(jsonData.data);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+
+    }, []);
 
     const onChangeText_Item = (text) => {
         setText(text);
@@ -13,7 +35,6 @@ const ShoppingListWithApi = props => {
     const onPress_Add = () => {
 
         const itemObj = {
-            id: shoppingList.length + 1,
             name: text,
         }
 
