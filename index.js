@@ -14,13 +14,14 @@ import App4 from './StylingLayout/App4';
 
 import HomeScreen from './CoreComponents/HomeScreen';
 // import ShoppingList from './CoreComponents/ShoppingList';
-import Counter from './State/Counter';
+// import Counter from './State/Counter';
 import ShoppingList from './State/ShoppingList';
 import MainNavigation from './Navigation/MainNavigation';
 import MainNavigationTabs from './Navigation/MainNavigationTabs';
+import Counter from './CustomComponents/Counter';
 
 import {name as appName} from './app.json';
 // yorum
 // pull için ekleme
 // yeni branch
-AppRegistry.registerComponent(appName, () => ShoppingList);
+AppRegistry.registerComponent(appName, () => Counter);
