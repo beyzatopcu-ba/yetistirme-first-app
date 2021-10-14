@@ -1,21 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import CounterButton from './CounterButton';
 import NumberButton from './NumberButton';
 
 
 const CounterAdvanced = props => {
+    console.log('lsdkf')
 
-    let [ num, setNum ] = useState(0);
+    // Gösterilen sayı
+    const [ num, setNum ] = useState(0);
+    // Artış - azalış miktarı
+    const refAmount = useRef(0);
     
     const onPress_Increase = () => {
-        setNum(num + 1);
+        console.log('amount', refAmount.current);
+        setNum(num + refAmount.current);
     }
 
     const onPress_Decrease = () => {
-        if (num > -15) {
-            setNum(num - 1);
+        setNum(num - refAmount.current);
+    }
+
+    const onSelectedStateChange = (isSelected, number) => {
+        console.log(isSelected, number);
+
+        let newAmount;
+        if (isSelected) {
+            newAmount = refAmount.current + number;
+        } else {
+            newAmount = refAmount.current - number;
         }
+
+        refAmount.current = newAmount;
     }
 
     return (
@@ -23,11 +39,14 @@ const CounterAdvanced = props => {
             <Text style={styles.numberText}>{num}</Text>
             <View style={styles.numberButtonsContainer}>
                 <NumberButton 
-                    number={5} />
+                    number={5}
+                    onSelectedStateChange={onSelectedStateChange} />
                 <NumberButton 
-                    number={10} />
+                    number={10} 
+                    onSelectedStateChange={onSelectedStateChange}/>
                 <NumberButton 
-                    number={15} />
+                    number={15} 
+                    onSelectedStateChange={onSelectedStateChange}/>
             </View>
             <View style={styles.buttonsContainer}>
                 <CounterButton 

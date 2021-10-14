@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 const CounterButton = props => {
-    console.log('CounterButton gelen propslar', props);
+    
     return (
         <TouchableOpacity 
             style={styles.touchable} 

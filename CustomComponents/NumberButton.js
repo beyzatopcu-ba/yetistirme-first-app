@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 const NumberButton = props => {
+
+    const [ isSelected, setIsSelected ] = useState(false);
+
+    const onPress = () => {
+        setIsSelected(!isSelected);
+        props.onSelectedStateChange(!isSelected, props.number);
+    };
+
+    const getTouchableStyles = () => {
+        return [
+            styles.touchable,
+            {
+                backgroundColor: isSelected ? 'orange' : 'grey'
+            }
+        ];
+    }
+
     return (
-        <TouchableOpacity style={styles.touchable}>
+        <TouchableOpacity
+            style={getTouchableStyles()}
+            onPress={onPress}>
             <Text style={styles.text}>{props.number}</Text>
         </TouchableOpacity>
     );
