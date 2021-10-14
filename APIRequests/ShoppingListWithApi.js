@@ -48,6 +48,11 @@ const ShoppingListWithApi = props => {
         })
         .then(response => {
             console.log('is ok', response.ok, 'status code', response.status);
+            if (response.ok) {
+                let copyShoppingList = [...shoppingList];
+                copyShoppingList.push(itemObj);
+                setShoppingList(copyShoppingList);
+            }
             return response.json();
         })
         .then(jsonData => {
@@ -56,10 +61,6 @@ const ShoppingListWithApi = props => {
         .catch(error => {
             console.log(error);
         })
-
-        let copyShoppingList = [...shoppingList];
-        copyShoppingList.push(itemObj);
-        setShoppingList(copyShoppingList);
     }
 
     const deleteItem = (item, index) => {
